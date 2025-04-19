@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@theme {
+	--font-primary: var(--font-manrope);
+	--color-primary: #ff9eaa;
+}
+html {
+	--color-primary: #ff9eaa;
+}
+@layer components {
+	.svg-animate {
+		stroke-dashoffset: 200;
+		stroke-dasharray: 200;
+		animation: dash 3s linear forwards;
+	}
+	@keyframes dash {
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+}
