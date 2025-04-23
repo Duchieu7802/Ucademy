@@ -6,6 +6,11 @@
 html {
 	--color-primary: #ff9eaa;
 }
+@layer base {
+	body {
+		@apply bg-gray-100;
+	}
+}
 @layer components {
 	.svg-animate {
 		stroke-dashoffset: 200;

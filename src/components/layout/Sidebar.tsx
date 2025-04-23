@@ -1,10 +1,12 @@
 import React from "react";
 import { menuItems } from "@/constants";
-import ActiveLink from "@/components/common/ActiveLink";
+
 import { TMenuItemProps } from "@/types";
+import { ActiveLink } from "../common";
+import { UserButton } from "@clerk/nextjs";
 const Sidebar = () => {
 	return (
-		<div className="p-5 border-r border-r-gray-200 ">
+		<div className="p-5 border-r border-r-gray-200 bg-white h-screen flex flex-col">
 			<a href="./" className="font-bold mb-5 text-3xl inline-block">
 				Ucademy
 			</a>
@@ -18,6 +20,9 @@ const Sidebar = () => {
 					></MenuItem>
 				))}
 			</ul>
+			<div className="mt-auto flex items-center justify-end ">
+				<UserButton />
+			</div>
 		</div>
 	);
 };
