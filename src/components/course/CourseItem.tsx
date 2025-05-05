@@ -23,7 +23,7 @@ const CourseItem = () => {
 		},
 	];
 	return (
-		<div className="course-item bg-white border border-gray-200 p-4 rounded-lg ">
+		<div className="course-item bg-white border border-gray-200 p-4 rounded-lg dark:bg-grayDarker dark:border-gray-200/10">
 			<Link href="#" className="block h-[200px] relative">
 				<Image
 					alt=""
@@ -41,7 +41,7 @@ const CourseItem = () => {
 				<h3 className="font-bold  mb-3 text-lg">
 					Khóa học NextJs Pro - Xây dựng E-Learning system hoàn chỉnh
 				</h3>
-				<div className="flex items-center text-xs mb-5 text-gray-500 ">
+				<div className="flex items-center text-xs mb-5 text-gray-500 dark:text-grayDark ">
 					<div className="flex items-center gap-2">
 						<div className="flex items-center gap-2">
 							<IconEye></IconEye>
