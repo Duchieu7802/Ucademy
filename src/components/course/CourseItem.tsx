@@ -6,22 +6,22 @@ import IconStar from "../icons/IconStar";
 import IconClock from "../icons/IconClock";
 
 const CourseItem = () => {
-	const courseInfo = [
-		{
-			title: "3000",
-			icon: (className?: string) => <IconEye className={className}></IconEye>,
-		},
-		{
-			title: "5.0",
-			icon: (className?: string) => <IconStar className={className}></IconStar>,
-		},
-		{
-			title: "30h25p",
-			icon: (className?: string) => (
-				<IconClock className={className}></IconClock>
-			),
-		},
-	];
+	// const courseInfo = [
+	// 	{
+	// 		title: "3000",
+	// 		icon: (className?: string) => <IconEye className={className}></IconEye>,
+	// 	},
+	// 	{
+	// 		title: "5.0",
+	// 		icon: (className?: string) => <IconStar className={className}></IconStar>,
+	// 	},
+	// 	{
+	// 		title: "30h25p",
+	// 		icon: (className?: string) => (
+	// 			<IconClock className={className}></IconClock>
+	// 		),
+	// 	},
+	// ];
 	return (
 		<div className="course-item bg-white border border-gray-200 p-4 rounded-lg dark:bg-grayDarker dark:border-gray-200/10">
 			<Link href="#" className="block h-[200px] relative">
