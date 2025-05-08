@@ -1,18 +1,16 @@
 import createUser from "@/lib/actions/user.actions";
 import { WebhookEvent } from "@clerk/nextjs/server";
-// import { headers } from "next/headers";
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { Webhook } from "svix";
 
 const webhookSecret: string = process.env.WEBHOOK_SECRET || "";
 
 export async function POST(req: Request) {
-	// const svix_id = (await headers()).get("svix-id") ?? "";
-	// const svix_timestamp = (await headers()).get("svix-timestamp") ?? "";
-	// const svix_signature = (await headers()).get("svix-signature") ?? "";
-	const svix_id = req.headers.get("svix-id") ?? "";
-	const svix_timestamp = req.headers.get("svix-timestamp") ?? "";
-	const svix_signature = req.headers.get("svix-signature") ?? "";
+	const svix_id = (await headers()).get("svix-id") ?? "";
+	const svix_timestamp = (await headers()).get("svix-timestamp") ?? "";
+	const svix_signature = (await headers()).get("svix-signature") ?? "";
+
 	const payload = await req.json();
 	const body = JSON.stringify(payload);
 
