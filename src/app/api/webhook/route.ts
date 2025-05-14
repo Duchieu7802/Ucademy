@@ -1,4 +1,4 @@
-import createUser from "@/lib/actions/user.actions";
+import { createUser } from "@/lib/actions/user.actions";
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
@@ -40,13 +40,6 @@ export async function POST(req: Request) {
 	if (eventType === "user.created") {
 		try {
 			const { email_addresses, username, image_url, id } = msg.data;
-			console.log("Data gửi vào createUser:", {
-				clerkId: id,
-				email: email_addresses[0].email_address,
-				username: username!,
-				name: username!,
-				avatar: image_url,
-			});
 			const user = await createUser({
 				clerkId: id,
 				email: email_addresses[0].email_address,
@@ -57,7 +50,6 @@ export async function POST(req: Request) {
 			return NextResponse.json({
 				message: "Ok",
 				user: user,
-				msg,
 			});
 		} catch (error) {
 			console.error("Lỗi khi tạo user:", error);
