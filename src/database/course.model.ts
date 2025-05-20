@@ -4,17 +4,15 @@ import { Document, Schema, model, models } from "mongoose";
 export interface ICourse extends Document {
 	_id: string;
 	title: string;
-	image: string;
-	intro_url: string;
-	desc: string;
+	slug: string;
 	price: number;
 	sale_price: number;
-	slug: string;
-	status: ECourseStatus;
-	created_at: Date;
-	author: Schema.Types.ObjectId;
-	level: ECourseLevel;
+	intro_url: string;
+	desc: string;
+	image: string;
 	views: number;
+	status: ECourseStatus;
+	level: ECourseLevel;
 	rating: number[];
 	info: {
 		requirements: string[];
@@ -26,6 +24,8 @@ export interface ICourse extends Document {
 	};
 	lectures: Schema.Types.ObjectId[];
 	_destroy: boolean;
+	created_at: Date;
+	author: Schema.Types.ObjectId;
 }
 const courseSchema = new Schema<ICourse>({
 	title: {

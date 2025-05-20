@@ -17,13 +17,14 @@ import { useState } from "react";
 import { CreateCourse } from "@/lib/actions/course.actions";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { IUser } from "@/database/user.model";
 
 const formSchema = z.object({
 	title: z.string().min(10, "Tên khóa học phải có ít nhất 10 ký tự"),
 	slug: z.string().optional(),
 });
 
-function CourseAddNew() {
+function CourseAddNew({ user }: { user: IUser }) {
 	const router = useRouter();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -48,12 +49,15 @@ function CourseAddNew() {
 						lower: true,
 						locale: "vi",
 					}),
+				author: user._id,
 			};
 			console.log(data);
 			const res = await CreateCourse(data);
-			if (res?.success) {
-				toast.success("Tạo khóa học thành công");
+			if (!res?.success) {
+				toast.error(res?.message);
+				return;
 			}
+			toast.success("Tạo khóa học thành công");
 			if (res?.data) {
 				router.push(`/manage/course/update?slug=${res.data.slug}`);
 			}

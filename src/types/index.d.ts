@@ -18,6 +18,7 @@ type TCreateUserParams = {
 type TCreateCourseParams = {
 	title: string;
 	slug: string;
+	author: string;
 };
 export {
 	TActiveLinkProps,

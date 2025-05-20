@@ -20,6 +20,7 @@ const buttonVariants = cva(
 				ghost:
 					"hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
 				link: "text-primary underline-offset-4 hover:underline",
+				primary: "bg-primary text-white",
 			},
 			size: {
 				default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -40,12 +41,13 @@ function Button({
 	variant,
 	size,
 	asChild = false,
-	isLoading,
 	children,
+	isLoading,
 	...props
 }: React.ComponentProps<"button"> &
 	VariantProps<typeof buttonVariants> & {
 		asChild?: boolean;
+		isLoading?: boolean;
 	}) {
 	const Comp = asChild ? Slot : "button";
 	const child = isLoading ? (
