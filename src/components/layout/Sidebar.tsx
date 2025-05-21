@@ -12,7 +12,7 @@ import Link from "next/link";
 const Sidebar = () => {
 	const { userId } = useAuth();
 	return (
-		<div className="p-5 border-r border-r-gray-200 bg-white h-screen flex flex-col dark:bg-grayDarker dark:border-gray-200/10">
+		<div className="hidden p-5 border-r border-r-gray-200 bg-white h-screen lg:flex flex-col dark:bg-grayDarker dark:border-gray-200/10">
 			<a href="./" className="font-bold mb-5 text-3xl inline-block">
 				Ucademy
 			</a>
