@@ -28,7 +28,7 @@ const CourseItem = ({ data }: { data: ICourse }) => {
 			<Link href={`/course/${data.slug}`} className="block h-[200px] relative">
 				<Image
 					alt=""
-					src="https://images.unsplash.com/photo-1741738668550-3efca0fca23a?q=80&w=2675&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+					src={data.image}
 					width={300}
 					height={200}
 					sizes="@media (min-width:640px) 300px, 100vw"

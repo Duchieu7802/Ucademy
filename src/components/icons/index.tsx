@@ -4,4 +4,13 @@ import IconComment from "./IconComment";
 import IconOrder from "./IconOrder";
 import IconUsers from "./IconUsers";
 import IconStudy from "./IconStudy";
-export { IconExplore, IconPlay, IconComment, IconOrder, IconStudy, IconUsers };
+import IconAdd from "./IconAdd";
+export {
+	IconExplore,
+	IconPlay,
+	IconComment,
+	IconOrder,
+	IconStudy,
+	IconUsers,
+	IconAdd,
+};
