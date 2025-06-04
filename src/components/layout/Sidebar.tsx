@@ -12,8 +12,8 @@ import Link from "next/link";
 const Sidebar = () => {
 	const { userId } = useAuth();
 	return (
-		<div className="hidden p-5 border-r border-r-gray-200 bg-white h-screen lg:flex flex-col dark:bg-grayDarker dark:border-gray-200/10">
-			<a href="./" className="font-bold mb-5 text-3xl inline-block">
+		<div className="hidden p-5 border-r border-r-gray-200 bg-white h-screen lg:flex flex-col bgDarkMode borderDarkMode">
+			<a href="/" className="font-bold mb-5 text-3xl inline-block">
 				Ucademy
 			</a>
 			<ul className="flex flex-col gap-2">
@@ -39,12 +39,17 @@ const Sidebar = () => {
 		</div>
 	);
 };
-function MenuItem({ url = "/", title = "", icon }: TMenuItemProps) {
+export function MenuItem({
+	url = "/",
+	title = "",
+	icon,
+	onlyIcon,
+}: TMenuItemProps) {
 	return (
 		<li>
 			<ActiveLink url={url}>
 				{icon}
-				{title}
+				{onlyIcon ? null : title}
 			</ActiveLink>
 		</li>
 	);

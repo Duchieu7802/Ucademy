@@ -2,7 +2,12 @@ import { IconPlay, IconStudy, IconUsers } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { courseLevelTitle } from "@/constants";
 import { getCourseBySlug } from "@/lib/actions/course.actions";
-
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 import Image from "next/image";
 
 const page = async ({
@@ -109,10 +114,12 @@ const page = async ({
 							},
 							index: number
 						) => (
-							<div key={index}>
-								<div>{qa.question}</div>
-								<div>{qa.answer}</div>
-							</div>
+							<Accordion key={index} type="single" collapsible>
+								<AccordionItem value={qa.question}>
+									<AccordionTrigger>{qa.question}</AccordionTrigger>
+									<AccordionContent>{qa.answer}</AccordionContent>
+								</AccordionItem>
+							</Accordion>
 						)
 					)}
 				</BoxSection>

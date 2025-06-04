@@ -7,22 +7,6 @@ import IconClock from "../icons/IconClock";
 import { ICourse } from "@/database/course.model";
 
 const CourseItem = ({ data }: { data: ICourse }) => {
-	// const courseInfo = [
-	// 	{
-	// 		title: "3000",
-	// 		icon: (className?: string) => <IconEye className={className}></IconEye>,
-	// 	},
-	// 	{
-	// 		title: "5.0",
-	// 		icon: (className?: string) => <IconStar className={className}></IconStar>,
-	// 	},
-	// 	{
-	// 		title: "30h25p",
-	// 		icon: (className?: string) => (
-	// 			<IconClock className={className}></IconClock>
-	// 		),
-	// 	},
-	// ];
 	return (
 		<div className="course-item bg-white border border-gray-200 p-4 rounded-lg dark:bg-grayDarker dark:border-gray-200/10">
 			<Link href={`/course/${data.slug}`} className="block h-[200px] relative">
@@ -55,8 +39,8 @@ const CourseItem = ({ data }: { data: ICourse }) => {
 							<span>30h25p</span>
 						</div>
 					</div>
-					<p className="text-primary font-bold ml-auto text-base">
-						{data.price}
+					<p className="text-primary font-bold ml-auto text-base 2xl:text-xs">
+						{data.price.toLocaleString()}đ
 					</p>
 				</div>
 			</div>

@@ -150,3 +150,11 @@ html {
 		}
 	}
 }
+@layer utilities {
+	.bgDarkMode {
+		@apply bg-white dark:bg-grayDarker;
+	}
+	.borderDarkMode {
+		@apply border-gray-200/10;
+	}
+}

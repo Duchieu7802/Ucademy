@@ -8,6 +8,7 @@ type TMenuItemProps = {
 	url: string;
 	title: string;
 	icon: React.ReactNode;
+	onlyIcon?: boolean;
 };
 //User
 type TCreateUserParams = {
@@ -25,6 +26,7 @@ type TCreateCourseParams = {
 type TUpdateCourseParams = {
 	slug: string;
 	updateData: Partial<ICourse>;
+	path?: string;
 };
 
 export {
