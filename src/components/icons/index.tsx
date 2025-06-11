@@ -5,6 +5,8 @@ import IconOrder from "./IconOrder";
 import IconUsers from "./IconUsers";
 import IconStudy from "./IconStudy";
 import IconAdd from "./IconAdd";
+import IconCancel from "./IconCancel";
+import IconCheck from "./IconCheck";
 export {
 	IconExplore,
 	IconPlay,
@@ -13,4 +15,6 @@ export {
 	IconStudy,
 	IconUsers,
 	IconAdd,
+	IconCancel,
+	IconCheck,
 };

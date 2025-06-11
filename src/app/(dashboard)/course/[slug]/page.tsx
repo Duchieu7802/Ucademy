@@ -9,6 +9,7 @@ import {
 	AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import { ILecture } from "@/database/lecture.model";
 
 const page = async ({
 	params,
@@ -23,6 +24,7 @@ const page = async ({
 	});
 	if (!data) return null;
 	const videoId = data.intro_url?.split("v=")[1];
+	const lectures = JSON.parse(JSON.stringify(data.lectures)) || [];
 	return (
 		<div className="grid lg:grid-cols-[2fr_1fr] gap-10 min-h-screen">
 			<div>
@@ -57,6 +59,27 @@ const page = async ({
 						<BoxInfo title="Lượt xem">{data.views}</BoxInfo>
 						<BoxInfo title="Trình độ">{courseLevelTitle[data.level]}</BoxInfo>
 						<BoxInfo title="Thời lượng">100</BoxInfo>
+					</div>
+				</BoxSection>
+				<BoxSection title="Nội dung khóa học">
+					<div className="flex flex-col gap-5">
+						{lectures.map((lecture: ILecture) => (
+							<Accordion
+								type="single"
+								collapsible
+								className="w-full"
+								key={lecture._id}
+							>
+								<AccordionItem value={lecture._id}>
+									<AccordionTrigger>
+										<div className="flex items-center gap-3 justify-between w-full pr-5">
+											<div>{lecture.title}</div>
+										</div>
+									</AccordionTrigger>
+									<AccordionContent></AccordionContent>
+								</AccordionItem>
+							</Accordion>
+						))}
 					</div>
 				</BoxSection>
 				<BoxSection title="Yêu cầu">
