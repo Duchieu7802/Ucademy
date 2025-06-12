@@ -1,9 +1,23 @@
 import CourseManage from "@/components/course/CourseManage";
-import { GetAllCourse } from "@/lib/actions/course.actions";
+import { getAllCourses } from "@/lib/actions/course.actions";
+import { ECourseStatus } from "@/types/enums";
 import React from "react";
 
-const page = async () => {
-	const courses = (await GetAllCourse()) || [];
+const page = async ({
+	searchParams,
+}: {
+	searchParams: {
+		page: number;
+		search: string;
+		status: ECourseStatus;
+	};
+}) => {
+	const courses = await getAllCourses({
+		page: searchParams.page || 1,
+		limit: 10,
+		search: searchParams.search || "",
+		status: searchParams.status || ECourseStatus.APPROVED,
+	});
 	return (
 		<div>
 			<CourseManage

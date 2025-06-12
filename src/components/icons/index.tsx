@@ -7,6 +7,8 @@ import IconStudy from "./IconStudy";
 import IconAdd from "./IconAdd";
 import IconCancel from "./IconCancel";
 import IconCheck from "./IconCheck";
+import IconLeftArrow from "./IconLeftArrow";
+import IconRightArrow from "./IconRightArrow";
 export {
 	IconExplore,
 	IconPlay,
@@ -17,4 +19,6 @@ export {
 	IconAdd,
 	IconCancel,
 	IconCheck,
+	IconRightArrow,
+	IconLeftArrow,
 };

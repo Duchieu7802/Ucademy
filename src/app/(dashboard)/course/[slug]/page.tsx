@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IconPlay, IconStudy, IconUsers } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { courseLevelTitle } from "@/constants";
@@ -10,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import Image from "next/image";
 import { ILecture } from "@/database/lecture.model";
+import LessonContent from "@/components/lesson/LessonContent";
 
 const page = async ({
 	params,
@@ -62,25 +64,7 @@ const page = async ({
 					</div>
 				</BoxSection>
 				<BoxSection title="Nội dung khóa học">
-					<div className="flex flex-col gap-5">
-						{lectures.map((lecture: ILecture) => (
-							<Accordion
-								type="single"
-								collapsible
-								className="w-full"
-								key={lecture._id}
-							>
-								<AccordionItem value={lecture._id}>
-									<AccordionTrigger>
-										<div className="flex items-center gap-3 justify-between w-full pr-5">
-											<div>{lecture.title}</div>
-										</div>
-									</AccordionTrigger>
-									<AccordionContent></AccordionContent>
-								</AccordionItem>
-							</Accordion>
-						))}
-					</div>
+					<LessonContent lectures={lectures} course="" slug=""></LessonContent>
 				</BoxSection>
 				<BoxSection title="Yêu cầu">
 					{data.info.requirements.map((r: string, index: number) => (

@@ -130,3 +130,4 @@ export const editorOptions = (field: any, theme: any) => ({
 		content_style: `@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');body { font-family: Manrope,Helvetica,Arial,sans-serif; font-size:14px; line-height: 2; padding-bottom: 32px; } img { max-width: 100%; height: auto; display: block; margin: 0 auto; };`,
 	},
 });
+export const lastLessonKey = "lastLesson";

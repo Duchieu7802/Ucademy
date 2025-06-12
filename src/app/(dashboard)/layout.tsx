@@ -17,7 +17,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
 					></MenuItem>
 				))}
 			</ul>
-			{/* <div className="hidden lg:block"></div> */}
+
 			<main className="p-5">{children}</main>
 		</div>
 	);

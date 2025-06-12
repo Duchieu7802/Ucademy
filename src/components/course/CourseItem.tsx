@@ -6,10 +6,19 @@ import IconStar from "../icons/IconStar";
 import IconClock from "../icons/IconClock";
 import { ICourse } from "@/database/course.model";
 
-const CourseItem = ({ data }: { data: ICourse }) => {
+const CourseItem = ({
+	data,
+	cta,
+	url,
+}: {
+	data: ICourse;
+	cta?: string;
+	url?: string;
+}) => {
+	const courseUrl = url ? url : `/course/${data.slug}`;
 	return (
 		<div className="course-item bg-white border border-gray-200 p-4 rounded-lg dark:bg-grayDarker dark:border-gray-200/10">
-			<Link href={`/course/${data.slug}`} className="block h-[200px] relative">
+			<Link href={courseUrl} className="block h-[200px] relative">
 				<Image
 					alt=""
 					src={data.image}
@@ -45,10 +54,10 @@ const CourseItem = ({ data }: { data: ICourse }) => {
 				</div>
 			</div>
 			<Link
-				href={`/course/${data.slug}`}
+				href={courseUrl}
 				className="flex items-center justify-center w-full bg-primary h-12 rounded-lg text-white mt-10 font-semibold"
 			>
-				<p>Xem chi tiết</p>
+				{cta || "Xem chi tiết"}
 			</Link>
 		</div>
 	);
