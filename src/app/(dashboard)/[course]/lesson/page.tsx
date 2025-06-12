@@ -11,9 +11,9 @@ const page = async ({
 	params: Promise<{
 		course: string;
 	}>;
-	searchParams: {
+	searchParams: Promise<{
 		slug: string;
-	};
+	}>;
 }) => {
 	const { course } = await params;
 	const { slug } = await searchParams;

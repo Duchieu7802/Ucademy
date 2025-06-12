@@ -6,17 +6,18 @@ import React from "react";
 const page = async ({
 	searchParams,
 }: {
-	searchParams: {
+	searchParams: Promise<{
 		page: number;
 		search: string;
 		status: ECourseStatus;
-	};
+	}>;
 }) => {
+	const { page, search, status } = await searchParams;
 	const courses = await getAllCourses({
-		page: searchParams.page || 1,
+		page: page || 1,
 		limit: 10,
-		search: searchParams.search || "",
-		status: searchParams.status || ECourseStatus.APPROVED,
+		search: search || "",
+		status: status || ECourseStatus.APPROVED,
 	});
 	return (
 		<div>
