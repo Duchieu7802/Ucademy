@@ -24,6 +24,7 @@ const page = async ({
 	const data = await getCourseBySlug({
 		slug: res.slug,
 	});
+
 	if (!data) return null;
 	const videoId = data.intro_url?.split("v=")[1];
 	const lectures = JSON.parse(JSON.stringify(data.lectures)) || [];

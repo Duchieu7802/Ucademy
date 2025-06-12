@@ -4,9 +4,10 @@ import Heading from "@/components/typography/Heading";
 import { getUserCourses } from "@/lib/actions/user.actions";
 import React from "react";
 import StudyCourses from "./StudyCode";
+import { getAllCoursesPublic } from "@/lib/actions/course.actions";
 
 const page = async () => {
-	const courses = await getUserCourses();
+	const courses = (await getAllCoursesPublic({})) || [];
 	return (
 		<>
 			<Heading>Khu vực học tập</Heading>
