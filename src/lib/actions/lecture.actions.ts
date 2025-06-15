@@ -23,7 +23,7 @@ export async function createLecture(params: TCreateLectureParams) {
 export async function updateLecture(params: TUpdateLectureParams) {
 	try {
 		connectToDatabase();
-		console.log(params);
+
 		const res = await Lecture.findByIdAndUpdate(
 			params.lectureId,
 			params.updateData,

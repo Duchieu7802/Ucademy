@@ -19,6 +19,7 @@ const page = async ({
 	const { slug } = await searchParams;
 	const findCourse = await getCourseBySlug({ slug: course });
 	if (!findCourse) return null;
+
 	const courseId = findCourse?._id.toString();
 	const lessonDetails = await getLessonBySlug({
 		slug,

@@ -51,7 +51,7 @@ function CourseAddNew({ user }: { user: IUser }) {
 					}),
 				author: user._id,
 			};
-			console.log(data);
+
 			const res = await CreateCourse(data);
 			if (!res?.success) {
 				toast.error(res?.message);

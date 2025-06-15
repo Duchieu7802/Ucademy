@@ -12,6 +12,9 @@ import {
 import Image from "next/image";
 import { ILecture } from "@/database/lecture.model";
 import LessonContent from "@/components/lesson/LessonContent";
+import { buyCourse } from "@/lib/actions/user.actions";
+import ButtonBuy from "./ButtonBuy";
+import { ILesson } from "@/database/lesson.model";
 
 const page = async ({
 	params,
@@ -20,10 +23,12 @@ const page = async ({
 		slug: string;
 	}>;
 }) => {
-	const res = await params;
+	const { slug } = await params;
+
 	const data = await getCourseBySlug({
-		slug: res.slug,
+		slug,
 	});
+	// eslint-disable-next-line @typescript-eslint/no-wrapper-object-types
 
 	if (!data) return null;
 	const videoId = data.intro_url?.split("v=")[1];
@@ -164,9 +169,7 @@ const page = async ({
 							<span>Tài liệu kèm theo</span>
 						</li>
 					</ul>
-					<Button variant="primary" className="w-full">
-						Mua khóa học
-					</Button>
+					<ButtonBuy slug={slug}></ButtonBuy>
 				</div>
 			</div>
 		</div>

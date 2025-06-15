@@ -10,6 +10,7 @@ const StudyCourses = ({
 	courses: ICourse[] | null | undefined;
 }) => {
 	if (!courses || courses.length <= 0) return null;
+
 	const lastLesson =
 		JSON.parse(localStorage?.getItem(lastLessonKey) || "[]") || [];
 	return (
@@ -18,16 +19,17 @@ const StudyCourses = ({
 				courses.length > 0 &&
 				courses?.map((item) => {
 					const url =
-						// eslint-disable-next-line @typescript-eslint/no-explicit-any
+						//	eslint-disable-next-line @typescript-eslint/no-explicit-any
 						lastLesson.find((el: any) => el.course === item.slug)?.lesson || "";
 					return (
 						<CourseItem
 							key={item.slug}
 							data={item}
 							cta="Tiếp tục học"
-							url={url}
+							// url={url}
 						></CourseItem>
 					);
+					// console.log("🚀 ~ findCourse:", findCourse);
 				})}
 		</CourseGrid>
 	);
