@@ -24,7 +24,7 @@ const StudyCourses = ({
 						//	eslint-disable-next-line @typescript-eslint/no-explicit-any
 						lastLesson.find((el: any) => el.course === item.slug)?.lesson ||
 						// @ts-expect-error
-						`${item.slug}/lesson?slug={${item?.lectures[0]?.lessons[0]?.slug}}`;
+						`${item.slug}/lesson?slug=${item?.lectures[0]?.lessons[0]?.slug}`;
 					return (
 						<CourseItem
 							key={item.slug}
