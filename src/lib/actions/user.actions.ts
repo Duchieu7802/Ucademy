@@ -7,6 +7,8 @@ import Course, { ICourse } from "@/database/course.model";
 import { auth } from "@clerk/nextjs/server";
 import { ECourseStatus } from "@/types/enums";
 import { getCourseBySlug } from "./course.actions";
+import Lecture from "@/database/lecture.model";
+import Lesson from "@/database/lesson.model";
 
 export async function createUser(params: TCreateUserParams) {
 	try {
@@ -41,9 +43,19 @@ export async function getUserCourses(): Promise<ICourse[] | undefined | null> {
 			match: {
 				status: ECourseStatus.APPROVED,
 			},
+			populate: [
+				{
+					path: "lectures",
+					model: Lecture,
+					populate: {
+						path: "lessons",
+						model: Lesson,
+					},
+				},
+			],
 		});
 		if (!findUser) return null;
-		return findUser.courses;
+		return findUser.courses as ICourse[];
 	} catch (error) {
 		console.log(error);
 	}

@@ -1,10 +1,11 @@
-import { Document, Schema, model, models } from "mongoose";
-
+import { Document, Schema, model, models, PopulatedDoc } from "mongoose";
+import { ILesson } from "./lesson.model";
+import { Types } from "mongoose";
 export interface ILecture extends Document {
 	_id: string;
 	title: string;
 	course: Schema.Types.ObjectId;
-	lessons: Schema.Types.ObjectId[];
+	lessons: Types.ObjectId[] | PopulatedDoc<ILesson>[];
 	created_at: Date;
 	order: number;
 	_destroy: boolean;

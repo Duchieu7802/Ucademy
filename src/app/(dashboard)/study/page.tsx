@@ -8,6 +8,9 @@ import { getCourseBySlug } from "@/lib/actions/course.actions";
 
 const page = async () => {
 	const courses = await getUserCourses();
+	// if (courses) {
+	// 	console.log(JSON.stringify(courses[0], null, 2));
+	// }
 
 	return (
 		<>

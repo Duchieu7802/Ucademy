@@ -28,6 +28,7 @@ const page = async ({
 	const data = await getCourseBySlug({
 		slug,
 	});
+
 	// eslint-disable-next-line @typescript-eslint/no-wrapper-object-types
 
 	if (!data) return null;
