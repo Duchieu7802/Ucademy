@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { menuItems } from "@/constants";
 
 import { TMenuItemProps } from "@/types";
 import { ActiveLink } from "../common";
@@ -8,6 +7,8 @@ import { useAuth, UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "../common/ModeToggle";
 import { IconUsers } from "../icons";
 import Link from "next/link";
+import MenuItemSide from "./MenuItem";
+import { adminMenuItems } from "@/constants";
 
 const Sidebar = () => {
 	const { userId } = useAuth();
@@ -17,7 +18,7 @@ const Sidebar = () => {
 				Ucademy
 			</a>
 			<ul className="flex flex-col gap-2">
-				{menuItems.map((item, index) => (
+				{adminMenuItems.map((item, index) => (
 					<MenuItem
 						key={index}
 						icon={item.icon}
@@ -25,6 +26,7 @@ const Sidebar = () => {
 						url={item.url}
 					></MenuItem>
 				))}
+				{/* <MenuItemSide></MenuItemSide> */}
 			</ul>
 			<div className="mt-auto flex items-center justify-end gap-2 ">
 				<ModeToggle></ModeToggle>

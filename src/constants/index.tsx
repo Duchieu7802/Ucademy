@@ -10,7 +10,7 @@ import {
 import { TMenuItemProps } from "@/types";
 import { ECourseLevel, ECourseStatus } from "@/types/enums";
 
-export const menuItems: TMenuItemProps[] = [
+export const adminMenuItems: TMenuItemProps[] = [
 	{
 		url: "/",
 		title: "Khám phá",
@@ -40,6 +40,18 @@ export const menuItems: TMenuItemProps[] = [
 		url: "/manage/comment",
 		title: "Quản lý bình luận",
 		icon: <IconComment className="size-5" />,
+	},
+];
+export const userMenuItems: TMenuItemProps[] = [
+	{
+		url: "/",
+		title: "Khám phá",
+		icon: <IconPlay className="size-5" />,
+	},
+	{
+		url: "/study",
+		title: "Khu vực học tập",
+		icon: <IconStudy className="size-5" />,
 	},
 ];
 export const courseStatus: {
